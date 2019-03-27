@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Smart Solution</title>
+    </head>
+    <body>
+        <div>
+            <label>Field A</label>
+            <input type="text" id="A">
+
+            <label>Field B</label>
+            <input type="text" id="B">
+
+            <label>Field C</label>
+            <input type="text" id="C">
+        </div>
+
+        <script type="text/javascript">
+            var a = document.getElementById('A');
+            var b = document.getElementById('B');
+            var c = document.getElementById('C');
+
+            var validate = function() {
+                if(validate.recentChange) {
+                    clearTimeout(validate.timer);
+                    validate.timer = setTimeout(function() {
+                        
+                        console.log("triggering call");
+                    }, 1000);
+                }
+            };
+            var handleChange = function(e) {
+                validate.recentChange = true;
+                validate();
+                validate.recentChange = false;
+            };
+            
+            a.addEventListener('input', handleChange);
+            b.addEventListener('input', handleChange);
+            c.addEventListener('input', handleChange);
+
+            
+
+            
+
+        </script>
+    </body>
+</html>
